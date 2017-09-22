@@ -1,6 +1,7 @@
 framework:
     secret: '%env(APP_SECRET)%'
-    #default_locale: en
+    default_locale: en
+    session: false
     #csrf_protection: ~
     #http_method_override: true
     #trusted_hosts: ~
@@ -10,5 +11,6 @@ framework:
     #    save_path: '%kernel.project_dir%/var/sessions/%kernel.environment%'
     #esi: ~
     #fragments: ~
+    templating: { engines: ['twig'] }
     php_errors:
         log: true
