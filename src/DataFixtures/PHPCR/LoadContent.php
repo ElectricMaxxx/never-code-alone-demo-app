@@ -6,14 +6,14 @@ use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ODM\PHPCR\DocumentManager;
 use PHPCR\Util\NodeHelper;
+use Symfony\Cmf\Bundle\ContentBundle\Doctrine\Phpcr\StaticContent;
 use Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Phpcr\Route;
 
 /**
  * @author Maximilian Berghoff <Maximilian.Berghoff@mayflower.de>
  */
-class LoadRouting implements FixtureInterface
+class LoadContent implements FixtureInterface
 {
-
     /**
      * Load data fixtures with the passed EntityManager
      *
@@ -21,18 +21,29 @@ class LoadRouting implements FixtureInterface
      */
     public function load(ObjectManager $manager)
     {
+        $contentPath = '/cms/content';
         $routingPath = '/cms/routes';
+
         $session = $manager->getPhpcrSession();
+
+        NodeHelper::createPath($session, $contentPath);
         NodeHelper::createPath($session, $routingPath);
 
+        $contentRootNode = $manager->find(null, $contentPath);
         $routeRootNode = $manager->find(null, $routingPath);
 
-        $route = new Route();
-        $route->setName('my-first-route');
-        $route->setParentDocument($routeRootNode);
-        $route->setDefaults(['_controller' => 'App\Controller\DynamicRoutingController:indexAction']);
+        $content = new StaticContent();
+        $content->setParentDocument($contentRootNode);
+        $content->setName('my-first-content');
+        $content->setTitle('My first content');
+        $content->setBody('This is really my first content');
+        $manager->persist($content);
 
+        $route = new Route();
+        $route->setPosition($routeRootNode, 'my-first-route');
+        $route->setContent($content);
         $manager->persist($route);
+
         $manager->flush();
     }
 }

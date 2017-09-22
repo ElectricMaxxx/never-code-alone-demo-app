@@ -1,0 +1,3 @@
+cmf_content:
+    persistence:
+        phpcr: ~

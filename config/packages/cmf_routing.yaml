@@ -7,3 +7,5 @@ cmf_routing:
         persistence:
             phpcr:
                 enabled: true
+        templates_by_class:
+            Symfony\Cmf\Bundle\ContentBundle\Doctrine\Phpcr\StaticContent: content/first.html.twig

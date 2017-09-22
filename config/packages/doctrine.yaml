@@ -2,7 +2,13 @@
 doctrine:
     dbal:
         driver:   '%env(DATABASE_DRIVER)%'
-        path:     '%env(DATABASE_PATH)%'
+        # path:     '%env(DATABASE_PATH)%'
+        host:     '%env(DATABASE_HOST)%'
+        port:     null
+        dbname:   '%env(DATABASE_NAME)%'
+        user:     '%env(DATABASE_USER)%'
+        password: '%env(DATABASE_PASSWORD)%'
+
         charset:  UTF8
 
 # cmf configuration
