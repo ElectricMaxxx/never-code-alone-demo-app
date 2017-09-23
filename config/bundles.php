@@ -26,4 +26,6 @@ return [
     'Symfony\Cmf\Bundle\ResourceBundle\CmfResourceBundle' => ['all' => true],
     'Symfony\Cmf\Bundle\ResourceRestBundle\CmfResourceRestBundle' => ['all' => true],
     'Symfony\Bundle\WebProfilerBundle\WebProfilerBundle' => ['dev' => true, 'test' => true],
+    'Sonata\SeoBundle\SonataSeoBundle' => ['all' => true],
+    'Symfony\Cmf\Bundle\SeoBundle\CmfSeoBundle' => ['all' => true],
 ];

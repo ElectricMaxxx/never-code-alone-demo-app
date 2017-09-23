@@ -18,6 +18,7 @@ cmf_tree_browser:
 cmf_sonata_phpcr_admin_integration:
     bundles:
         menu: ~
+        seo: ~
         core: ~
         content:
            ivory_ckeditor:
@@ -64,6 +65,9 @@ sonata_admin:
                 - Symfony\Cmf\Component\Routing\RouteReferrersReadInterface
             extends:
                 - Symfony\Component\Routing\Route
+        cmf_sonata_phpcr_admin_integration.seo.extension.metadata:
+            implements:
+                - Symfony\Cmf\Bundle\SeoBundle\SeoAwareInterface
 
     templates:
         layout:     admin/custom_layout.html.twig

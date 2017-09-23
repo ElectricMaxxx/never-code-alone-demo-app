@@ -2,14 +2,15 @@
 
 namespace App\DataFixtures\PHPCR;
 
+use App\Document\DemoSeoContent;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ODM\PHPCR\DocumentManager;
 use PHPCR\Util\NodeHelper;
-use Symfony\Cmf\Bundle\ContentBundle\Doctrine\Phpcr\StaticContent;
 use Symfony\Cmf\Bundle\MenuBundle\Doctrine\Phpcr\Menu;
 use Symfony\Cmf\Bundle\MenuBundle\Doctrine\Phpcr\MenuNode;
 use Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Phpcr\Route;
+use Symfony\Cmf\Bundle\SeoBundle\Doctrine\Phpcr\SeoMetadata;
 
 /**
  * @author Maximilian Berghoff <Maximilian.Berghoff@mayflower.de>
@@ -70,13 +71,16 @@ class LoadContent implements FixtureInterface
         $staticMenuNode->setLabel('Quasi Statik');
         $manager->bindTranslation($staticMenuNode, 'de');
 
-        $content = new StaticContent();
+        $content = new DemoSeoContent();
         $content->setParentDocument($contentRootNode);
         $content->setName('my-first-content');
         $manager->persist($content);
 
         $content->setTitle('My first content');
         $content->setBody('This is really my first content');
+        $deMeta = new SeoMetadata();
+        $deMeta->setTitle('Seo Title Of First Content');
+        $content->setSeoMetadata($deMeta);
         $manager->bindTranslation($content, 'en');
 
         $menuNode = new MenuNode();

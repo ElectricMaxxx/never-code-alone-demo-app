@@ -1,0 +1,13 @@
+cmf_seo:
+    persistence:
+        phpcr: ~
+    title: Never Code Alone | %%content_title%%
+    description: The Content Management Framework. %%content_description%%
+    alternate_locale: ~
+
+sonata_seo:
+    page:
+        title: Never Code Alone
+        metas:
+            name:
+                keywords: "CMF, Symfony, Routing, Content, PHPCR"
