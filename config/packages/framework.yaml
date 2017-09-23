@@ -1,7 +1,8 @@
 framework:
     secret: '%env(APP_SECRET)%'
     default_locale: en
-    session: false
+    session:
+        name: symfony-cmf
     #csrf_protection: ~
     #http_method_override: true
     #trusted_hosts: ~

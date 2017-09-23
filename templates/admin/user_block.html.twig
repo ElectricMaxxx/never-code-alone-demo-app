@@ -1,0 +1,12 @@
+{% extends 'SonataAdminBundle:Core:user_block.html.twig' %}
+
+{% block user_block %}
+    <div class="admin-user-info">
+        Hi {{ app.user.username }}!
+        <a href="{{ path('logout') }}">Logout</a>
+    </div>
+
+    <div class="admin-user-locale">
+        {{ locale_switcher(null, null, 'admin/switcher_links.html.twig') }}
+    </div>
+{% endblock %}

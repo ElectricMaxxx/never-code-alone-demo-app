@@ -1,0 +1,4 @@
+Read in
+{% for locale in locales %}
+    <a href="{{ locale.link }}" title="{{ locale.locale_target_language }}"><img src="{{ asset('/bundles/sonatatranslation/img/flags/' ~ locale.locale ~ '.png') }}"></a>
+{% endfor %}
