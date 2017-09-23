@@ -14,4 +14,5 @@ return [
     'Symfony\Cmf\Bundle\ContentBundle\CmfContentBundle' => ['all' => true],
     'Symfony\Bundle\SecurityBundle\SecurityBundle' => ['all' => true],
     'Symfony\Bundle\MonologBundle\MonologBundle' => ['all' => true],
+    'Lunetics\LocaleBundle\LuneticsLocaleBundle' => ['all' => true],
 ];

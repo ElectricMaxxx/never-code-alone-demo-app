@@ -32,15 +32,34 @@ class LoadContent implements FixtureInterface
         $contentRootNode = $manager->find(null, $contentPath);
         $routeRootNode = $manager->find(null, $routingPath);
 
+        $deRoute = new Route();
+        $deRoute->setPosition($routeRootNode, 'de');
+        $manager->persist($deRoute);
+
+        $enRoute = new Route();
+        $enRoute->setPosition($routeRootNode, 'en');
+        $manager->persist($enRoute);
+
         $content = new StaticContent();
         $content->setParentDocument($contentRootNode);
         $content->setName('my-first-content');
-        $content->setTitle('My first content');
-        $content->setBody('This is really my first content');
         $manager->persist($content);
 
+        $content->setTitle('My first content');
+        $content->setBody('This is really my first content');
+        $manager->bindTranslation($content, 'en');
+
         $route = new Route();
-        $route->setPosition($routeRootNode, 'my-first-route');
+        $route->setPosition($enRoute, 'my-first-route');
+        $route->setContent($content);
+        $manager->persist($route);
+
+        $content->setTitle('Mein erster Inhalt');
+        $content->setBody('Das ist wirklich mein erster Inhalt');
+        $manager->bindTranslation($content, 'de');
+
+        $route = new Route();
+        $route->setPosition($deRoute, 'mein-erster-inhalt');
         $route->setContent($content);
         $manager->persist($route);
 

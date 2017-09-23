@@ -1,0 +1,10 @@
+cmf_core:
+    multilang:
+        locales: [en,de]
+lunetics_locale:
+    strict_mode: true
+    guessing_order:
+        - router
+        - cookie
+        - browser
+    allowed_locales: [en,de]
