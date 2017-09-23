@@ -1,0 +1,9 @@
+cmf_menu:
+    persistence:
+        phpcr:
+            menu_basepath: /cms/menu
+    voters:
+        uri_prefix: true
+
+knp_menu:
+    twig: true

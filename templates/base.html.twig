@@ -6,6 +6,19 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        {% block navigation %}
+
+            <div id="nav">
+                {{ knp_menu_render('main', {'depth': 1}) }}
+            </div>
+            <div id="nav">
+                {% trans %}languages{% endtrans %}
+                <ul>
+                    <li><a href="/de">DE</a></li>
+                    <li><a href="/en">EN</a></li>
+                </ul>
+            </div>
+        {% endblock %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

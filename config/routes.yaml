@@ -1,6 +1,10 @@
-index:
+home_redirect:
     path: /
-    defaults: { _controller: 'App\Controller\DefaultController::indexAction' }
+    defaults:
+        _controller: lunetics_locale.switcher_controller:switchAction
+        route: '/cms/routes/%locale%'
+        statusCode: 301
+        useReferrer: false
 article:
     path: /article/{articleName}
     defaults: { _controller: 'App\Controller\ArticleController::indexAction' }

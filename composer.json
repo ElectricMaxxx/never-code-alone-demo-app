@@ -12,6 +12,7 @@
         "lunetics/locale-bundle": "^2.5",
         "symfony-cmf/content-bundle": "^2.0",
         "symfony-cmf/core-bundle": "^2.0",
+        "symfony-cmf/menu-bundle": "^2.1",
         "symfony-cmf/routing-bundle": "^2.0",
         "symfony/asset": "^3.3",
         "symfony/console": "^3.3",

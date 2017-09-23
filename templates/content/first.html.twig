@@ -1,2 +1,6 @@
-<h1>{{ cmfMainContent.title }}</h1>
-{{ cmfMainContent.body|raw }}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{ cmfMainContent.title }}</h1>
+    {{ cmfMainContent.body|raw }}
+{% endblock %}
